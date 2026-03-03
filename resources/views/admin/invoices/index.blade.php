@@ -1,0 +1,4 @@
+<x-app-layout>
+    <x-slot name="header"><h2 class="font-semibold text-xl text-gray-800 leading-tight">Super Admin: Invoices</h2></x-slot>
+    <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8"><div class="bg-white shadow sm:rounded-lg overflow-hidden"><table class="min-w-full text-sm"><thead class="bg-gray-50"><tr><th class="p-3 text-left">Invoice</th><th class="p-3 text-left">Tenant</th><th class="p-3 text-left">Status</th><th class="p-3 text-left">Total</th><th class="p-3 text-left">Balance</th></tr></thead><tbody>@foreach($invoices as $invoice)<tr class="border-t"><td class="p-3">{{ $invoice->invoice_no }}</td><td class="p-3">{{ $invoice->tenant?->name }}</td><td class="p-3">{{ $invoice->status }}</td><td class="p-3">{{ number_format($invoice->total,2) }}</td><td class="p-3">{{ number_format($invoice->balance_due,2) }}</td></tr>@endforeach</tbody></table></div><div class="mt-4">{{ $invoices->links() }}</div></div>
+</x-app-layout>

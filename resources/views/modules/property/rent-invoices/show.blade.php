@@ -1,0 +1,7 @@
+<x-app-layout>
+    <x-slot name="header"><h2 class="font-semibold text-xl text-gray-800 leading-tight">Rent Invoice {{ $rentInvoice->invoice_no }}</h2></x-slot>
+    <div class="py-6 max-w-5xl mx-auto sm:px-6 lg:px-8 space-y-4">
+        <div class="bg-white p-6 shadow sm:rounded-lg"><p>Tenant: {{ $rentInvoice->lease?->rentalTenant?->name }}</p><p>Amount: {{ number_format($rentInvoice->amount,2) }}</p><p>Paid: {{ number_format($rentInvoice->paid_amount,2) }}</p><p>Balance: {{ number_format($rentInvoice->balance,2) }}</p><p>Status: {{ $rentInvoice->status }}</p></div>
+        <div class="bg-white p-6 shadow sm:rounded-lg"><h3 class="font-semibold mb-3">Record Payment</h3><form method="POST" action="{{ route('property.rent-invoices.pay', $rentInvoice) }}" class="grid md:grid-cols-4 gap-3">@csrf<input type="number" step="0.01" name="amount" class="border rounded p-2" placeholder="Amount" required><input name="method" class="border rounded p-2" placeholder="Method"><input name="reference" class="border rounded p-2" placeholder="Reference"><button class="bg-green-600 text-white rounded" type="submit">Pay</button></form><h4 class="font-semibold mt-6 mb-2">Payments</h4><ul>@forelse($rentInvoice->payments as $payment)<li>{{ number_format($payment->amount,2) }} via {{ $payment->method }} on {{ $payment->paid_at?->format('Y-m-d H:i') }}</li>@empty<li>No payments.</li>@endforelse</ul></div>
+    </div>
+</x-app-layout>

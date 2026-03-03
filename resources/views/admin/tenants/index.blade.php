@@ -1,0 +1,4 @@
+<x-app-layout>
+    <x-slot name="header"><h2 class="font-semibold text-xl text-gray-800 leading-tight">Super Admin: Tenants</h2></x-slot>
+    <div class="py-6 max-w-7xl mx-auto sm:px-6 lg:px-8"><div class="bg-white shadow sm:rounded-lg overflow-hidden"><table class="min-w-full text-sm"><thead class="bg-gray-50"><tr><th class="p-3 text-left">Tenant</th><th class="p-3 text-left">Users</th><th class="p-3 text-left">Status</th><th class="p-3 text-left">Action</th></tr></thead><tbody>@foreach($tenants as $tenant)<tr class="border-t"><td class="p-3">{{ $tenant->name }}</td><td class="p-3">{{ $tenant->users_count }}</td><td class="p-3">{{ $tenant->is_active ? 'active' : 'inactive' }}</td><td class="p-3"><a class="text-blue-600" href="{{ route('admin.tenants.show', $tenant) }}">View</a></td></tr>@endforeach</tbody></table></div><div class="mt-4">{{ $tenants->links() }}</div></div>
+</x-app-layout>

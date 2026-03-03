@@ -1,0 +1,1 @@
+<x-app-layout><x-slot name="header"><h2 class="font-semibold text-xl text-gray-800 leading-tight">Add Product</h2></x-slot><div class="py-6 max-w-5xl mx-auto sm:px-6 lg:px-8"><form method="POST" action="{{ route('pos.products.store') }}" class="bg-white p-6 shadow sm:rounded-lg">@include('modules.pos.products._form', ['buttonText' => 'Create Product'])</form></div></x-app-layout>
