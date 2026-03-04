@@ -190,8 +190,8 @@
                 <div class="flex {{ $isModernModuleLayout ? 'gap-0' : 'gap-6' }}">
                     @if($moduleNav)
                         @if($isModernModuleLayout)
-                            <aside class="w-[23rem] hidden md:block">
-                                <div class="sticky top-0 h-screen overflow-y-auto bg-[#0f2954] text-white px-6 py-8 border-r border-[#25416b]">
+                            <aside class="w-[18.5rem] hidden md:block">
+                                <div class="sticky top-0 h-screen overflow-y-auto bg-[#0f2954] text-white px-4 py-6 border-r border-[#25416b]">
                                     @php
                                         $tenantName = auth()->user()?->tenant?->name ?? config('app.name', 'Tiwi');
                                         $tenantInitials = collect(explode(' ', $tenantName))
@@ -200,17 +200,17 @@
                                             ->map(fn ($word) => strtoupper(substr($word, 0, 1)))
                                             ->implode('');
                                     @endphp
-                                    <div class="flex items-center gap-4 mb-10">
-                                        <div class="h-14 w-14 rounded-2xl bg-[#b8d8f7] text-[#0f2954] font-extrabold flex items-center justify-center text-xl">
+                                    <div class="flex items-center gap-3 mb-8">
+                                        <div class="h-12 w-12 rounded-xl bg-[#b8d8f7] text-[#0f2954] font-extrabold flex items-center justify-center text-lg">
                                             {{ $tenantInitials ?: 'TS' }}
                                         </div>
                                         <div>
-                                            <h3 class="{{ $isPosModule ? 'text-[1.6rem] md:text-[1.75rem] leading-[1.1]' : 'text-4xl leading-tight' }} font-extrabold">{{ $consoleTitle }}</h3>
-                                            <p class="{{ $isPosModule ? 'text-[1rem] md:text-[1.05rem] leading-tight' : 'text-base' }} text-[#a9c0df] mt-1">{{ $consoleSubtitle }}</p>
+                                            <h3 class="{{ $isPosModule ? 'text-[1.05rem] md:text-[1.12rem] leading-[1.1]' : 'text-4xl leading-tight' }} font-extrabold">{{ $consoleTitle }}</h3>
+                                            <p class="{{ $isPosModule ? 'text-[0.72rem] md:text-[0.78rem] leading-tight' : 'text-base' }} text-[#a9c0df] mt-1">{{ $consoleSubtitle }}</p>
                                         </div>
                                     </div>
 
-                                    <nav class="space-y-3.5">
+                                    <nav class="space-y-2.5">
                                         @foreach($moduleNav as $item)
                                             @php
                                                 $childItems = $item['children'] ?? [];
@@ -219,21 +219,21 @@
                                             @endphp
                                             <a
                                                 href="{{ route($item['route']) }}"
-                                                class="flex items-center gap-4 px-4 py-3.5 rounded-2xl {{ $isSchoolModule ? 'text-2xl' : 'text-[1.12rem] md:text-[1.2rem]' }} leading-none font-semibold transition {{ $isActive ? 'bg-[#3c547b] text-white shadow' : 'text-[#b9c8de] hover:bg-[#1a3b6d] hover:text-white' }}"
+                                                class="flex items-center gap-3 px-3 py-2.5 rounded-xl {{ $isSchoolModule ? 'text-2xl' : 'text-[0.95rem] md:text-[1rem]' }} leading-none font-semibold transition {{ $isActive ? 'bg-[#3c547b] text-white shadow' : 'text-[#b9c8de] hover:bg-[#1a3b6d] hover:text-white' }}"
                                             >
-                                                <span class="h-10 w-10 rounded-xl flex items-center justify-center text-base font-extrabold border border-white/20 {{ $isActive ? 'bg-white/15 text-white' : 'bg-white/5 text-[#d4e0f2]' }}">
+                                                <span class="h-8 w-8 rounded-lg flex items-center justify-center text-xs font-extrabold border border-white/20 {{ $isActive ? 'bg-white/15 text-white' : 'bg-white/5 text-[#d4e0f2]' }}">
                                                     {{ $item['code'] ?? '--' }}
                                                 </span>
                                                 <span>{{ $item['label'] }}</span>
                                             </a>
 
                                             @if(($isSchoolModule || $isPosModule) && !empty($childItems) && $isActive)
-                                                <div class="ml-16 mt-2 mb-3 space-y-1">
+                                                <div class="ml-12 mt-1.5 mb-2.5 space-y-1">
                                                     @foreach($childItems as $child)
                                                         @php($childActive = request()->routeIs($child['route']))
                                                         <a
                                                             href="{{ route($child['route']) }}"
-                                                            class="block rounded-lg px-3 py-2 text-sm font-medium transition {{ $childActive ? 'bg-[#45618c] text-white' : 'text-[#9fb5d4] hover:text-white hover:bg-[#1a3b6d]' }}"
+                                                            class="block rounded-lg px-2 py-1 text-[0.68rem] font-medium transition {{ $childActive ? 'bg-[#45618c] text-white' : 'text-[#9fb5d4] hover:text-white hover:bg-[#1a3b6d]' }}"
                                                         >
                                                             {{ $child['label'] }}
                                                         </a>
