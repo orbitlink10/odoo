@@ -205,8 +205,8 @@
                                             {{ $tenantInitials ?: 'TS' }}
                                         </div>
                                         <div>
-                                            <h3 class="{{ $isPosModule ? 'text-[1.95rem] md:text-[2.05rem] leading-[1.08]' : 'text-4xl leading-tight' }} font-extrabold">{{ $consoleTitle }}</h3>
-                                            <p class="{{ $isPosModule ? 'text-[1.2rem] md:text-[1.25rem] leading-tight' : 'text-base' }} text-[#a9c0df] mt-1">{{ $consoleSubtitle }}</p>
+                                            <h3 class="{{ $isPosModule ? 'text-[1.6rem] md:text-[1.75rem] leading-[1.1]' : 'text-4xl leading-tight' }} font-extrabold">{{ $consoleTitle }}</h3>
+                                            <p class="{{ $isPosModule ? 'text-[1rem] md:text-[1.05rem] leading-tight' : 'text-base' }} text-[#a9c0df] mt-1">{{ $consoleSubtitle }}</p>
                                         </div>
                                     </div>
 
@@ -219,9 +219,9 @@
                                             @endphp
                                             <a
                                                 href="{{ route($item['route']) }}"
-                                                class="flex items-center gap-4 px-4 py-3.5 rounded-2xl {{ $isSchoolModule ? 'text-2xl' : 'text-[1.35rem] md:text-[1.45rem]' }} leading-none font-semibold transition {{ $isActive ? 'bg-[#3c547b] text-white shadow' : 'text-[#b9c8de] hover:bg-[#1a3b6d] hover:text-white' }}"
+                                                class="flex items-center gap-4 px-4 py-3.5 rounded-2xl {{ $isSchoolModule ? 'text-2xl' : 'text-[1.12rem] md:text-[1.2rem]' }} leading-none font-semibold transition {{ $isActive ? 'bg-[#3c547b] text-white shadow' : 'text-[#b9c8de] hover:bg-[#1a3b6d] hover:text-white' }}"
                                             >
-                                                <span class="h-11 w-11 rounded-xl flex items-center justify-center text-lg font-extrabold border border-white/20 {{ $isActive ? 'bg-white/15 text-white' : 'bg-white/5 text-[#d4e0f2]' }}">
+                                                <span class="h-10 w-10 rounded-xl flex items-center justify-center text-base font-extrabold border border-white/20 {{ $isActive ? 'bg-white/15 text-white' : 'bg-white/5 text-[#d4e0f2]' }}">
                                                     {{ $item['code'] ?? '--' }}
                                                 </span>
                                                 <span>{{ $item['label'] }}</span>
