@@ -8,6 +8,7 @@ use App\Modules\POS\Models\Inventory;
 use App\Modules\POS\Models\Product;
 use App\Modules\POS\Requests\StoreProductRequest;
 use App\Services\AuditLogService;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -15,11 +16,24 @@ class ProductController extends Controller
     {
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::query()->with(['category', 'inventory'])->latest()->paginate(20);
+        $search = trim((string) $request->string('q'));
 
-        return view('modules.pos.products.index', compact('products'));
+        $products = Product::query()
+            ->with(['category', 'inventory'])
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($builder) use ($search) {
+                    $builder
+                        ->where('name', 'like', '%'.$search.'%')
+                        ->orWhere('sku', 'like', '%'.$search.'%');
+                });
+            })
+            ->latest()
+            ->paginate(20)
+            ->withQueryString();
+
+        return view('modules.pos.products.index', compact('products', 'search'));
     }
 
     public function create()
