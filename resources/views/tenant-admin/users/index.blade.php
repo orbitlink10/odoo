@@ -139,28 +139,31 @@
                 </form>
             </article>
 
-            <article class="rounded-[26px] border border-slate-700/30 bg-gradient-to-br from-[#12386d] via-[#1d4f8f] to-[#145e75] p-6 md:p-7 text-white shadow-sm">
-                <h3 class="text-xl md:text-2xl leading-none font-extrabold">Access Checklist</h3>
-                <p class="mt-2 text-sm text-white/90">Keep role assignments intentional to reduce mistakes and protect tenant data.</p>
+            <article class="rounded-[26px] border border-[#d9dee8] bg-[#ffffff] p-6 md:p-7 shadow-sm">
+                <span class="inline-flex items-center rounded-full border border-[#f4c7cb] bg-[#fff5f6] px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#b11f2c]">Security Guide</span>
+                <h3 class="mt-3 text-xl md:text-2xl leading-none font-extrabold text-[#0f1828]">Access Checklist</h3>
+                <p class="mt-2 text-sm text-[#3d4a5f]">Keep role assignments intentional to reduce mistakes and protect tenant data.</p>
+
+                <div class="mt-5 h-1.5 w-14 rounded-full bg-[#e30613]"></div>
 
                 <div class="mt-5 space-y-3 text-sm">
-                    <div class="rounded-2xl bg-white/12 border border-white/20 p-3">
-                        <p class="font-bold">1. Principle of least privilege</p>
-                        <p class="mt-1 text-white/85">Assign only the roles needed for daily responsibilities.</p>
+                    <div class="rounded-2xl border border-[#d9dee8] bg-[#f8fafd] p-3">
+                        <p class="font-bold text-[#111d2f]">1. Principle of least privilege</p>
+                        <p class="mt-1 text-[#3d4a5f]">Assign only the roles needed for daily responsibilities.</p>
                     </div>
-                    <div class="rounded-2xl bg-white/12 border border-white/20 p-3">
-                        <p class="font-bold">2. Use temporary passwords</p>
-                        <p class="mt-1 text-white/85">Set a strong temporary password and ask users to rotate it immediately.</p>
+                    <div class="rounded-2xl border border-[#d9dee8] bg-[#f8fafd] p-3">
+                        <p class="font-bold text-[#111d2f]">2. Use temporary passwords</p>
+                        <p class="mt-1 text-[#3d4a5f]">Set a strong temporary password and ask users to rotate it immediately.</p>
                     </div>
-                    <div class="rounded-2xl bg-white/12 border border-white/20 p-3">
-                        <p class="font-bold">3. Disable unused accounts</p>
-                        <p class="mt-1 text-white/85">Turn off access for inactive staff while keeping historical records intact.</p>
+                    <div class="rounded-2xl border border-[#d9dee8] bg-[#f8fafd] p-3">
+                        <p class="font-bold text-[#111d2f]">3. Disable unused accounts</p>
+                        <p class="mt-1 text-[#3d4a5f]">Turn off access for inactive staff while keeping historical records intact.</p>
                     </div>
                 </div>
 
                 <div class="mt-5 flex flex-wrap gap-2">
-                    <span class="inline-flex rounded-2xl bg-white/90 text-slate-800 px-3 py-1.5 text-xs font-semibold">Roles: {{ number_format($roles->count()) }}</span>
-                    <span class="inline-flex rounded-2xl bg-white/15 text-white px-3 py-1.5 text-xs font-semibold">Review monthly</span>
+                    <span class="inline-flex rounded-2xl border border-[#d9dee8] bg-[#eef3fb] text-[#1f3658] px-3 py-1.5 text-xs font-semibold">Roles: {{ number_format($roles->count()) }}</span>
+                    <span class="inline-flex rounded-2xl border border-[#f4c7cb] bg-[#fff5f6] text-[#b11f2c] px-3 py-1.5 text-xs font-semibold">Review monthly</span>
                 </div>
             </article>
         </section>
